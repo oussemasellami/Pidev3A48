@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Student index{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<center><a href="{{ path('app_student_new') }}">Create new</a></center>
+<br>
+<div class="container">
+<div class="card" style="width: 18rem;">
+    {% for student in students %}
+    <img class="card-img-top" src="{{asset('images/slider/young-asian-female-dentist-white-coat-posing-clinic-equipment.jpg')}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ student.nsc }}</h5>
+      <p class="card-text"> {{ student.email }}</p>
+      <a href="{{ path('app_student_show', {'id': student.id}) }}"  class="btn btn-primary">show</a>
+      <a href="{{ path('app_student_edit', {'id': student.id}) }}" class="btn btn-primary">edit</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+  
+
+    <!--<table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nsc</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.nsc }}</td>
+                <td>{{ student.email }}</td>
+                <td>
+                    <a href="{{ path('app_student_show', {'id': student.id}) }}">show</a>
+                    <a href="{{ path('app_student_edit', {'id': student.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>-->
+
+    
+{% endblock %}
